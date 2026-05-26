@@ -1,0 +1,15 @@
+# Java build artifacts
+backend/target/
+
+# Angular build artifacts
+frontend/dist/
+frontend/.angular/cache/
+
+# Node modules
+frontend/node_modules/
+
+# IDE / OS
+.DS_Store
+.idea/
+*.iml
+.vscode/

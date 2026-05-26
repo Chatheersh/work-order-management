@@ -1,0 +1,74 @@
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.detail-header h1 {
+  margin: 0 0 0.5rem;
+}
+
+.meta {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.header-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.detail-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.detail-field {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.detail-field:last-child {
+  border-bottom: none;
+}
+
+.field-label {
+  font-weight: 600;
+  color: #555;
+}
+
+.field-value {
+  color: #333;
+  white-space: pre-wrap;
+}
+
+.back-link a {
+  color: #1976d2;
+  text-decoration: none;
+}
+
+.status-badge,
+.priority-badge {
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.status-open       { background: #e3f2fd; color: #1565c0; }
+.status-in-progress { background: #fff3e0; color: #e65100; }
+.status-on-hold    { background: #f3e5f5; color: #6a1b9a; }
+.status-completed  { background: #e8f5e9; color: #2e7d32; }
+.status-cancelled  { background: #ffebee; color: #b71c1c; }
+
+.badge-low      { background: #e8f5e9; color: #2e7d32; }
+.badge-medium   { background: #fff9c4; color: #f57f17; }
+.badge-high     { background: #fff3e0; color: #e65100; }
+.badge-critical { background: #ffebee; color: #b71c1c; }

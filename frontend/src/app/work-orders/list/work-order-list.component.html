@@ -1,0 +1,57 @@
+<div class="page-header">
+  <h1>Work Orders</h1>
+  <a routerLink="/work-orders/new" class="btn btn-primary">+ New Work Order</a>
+</div>
+
+<div class="filters">
+  <label for="statusFilter">Filter by Status:</label>
+  <select id="statusFilter" [(ngModel)]="filteredStatus" (change)="onStatusFilterChange()">
+    <option value="">All</option>
+    <option *ngFor="let s of statuses" [value]="s">{{ s | titlecase }}</option>
+  </select>
+</div>
+
+<div *ngIf="errorMessage" class="error-banner">{{ errorMessage }}</div>
+<div *ngIf="loading" class="loading">Loading...</div>
+
+<div *ngIf="!loading && workOrders.length === 0 && !errorMessage" class="empty-state">
+  No work orders found. <a routerLink="/work-orders/new">Create one</a>.
+</div>
+
+<table *ngIf="!loading && workOrders.length > 0" class="work-order-table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Title</th>
+      <th>Status</th>
+      <th>Priority</th>
+      <th>Assignee</th>
+      <th>Created</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let wo of workOrders">
+      <td>{{ wo.id }}</td>
+      <td>
+        <a [routerLink]="['/work-orders', wo.id]">{{ wo.title }}</a>
+      </td>
+      <td>
+        <span class="status-badge" [ngClass]="statusClass(wo.status)">
+          {{ wo.status | titlecase }}
+        </span>
+      </td>
+      <td>
+        <span class="priority-badge" [ngClass]="priorityClass(wo.priority)">
+          {{ wo.priority | titlecase }}
+        </span>
+      </td>
+      <td>{{ wo.assignee || '—' }}</td>
+      <td>{{ wo.createdAt | date:'short' }}</td>
+      <td class="actions">
+        <a [routerLink]="['/work-orders', wo.id, 'edit']" class="btn btn-sm btn-secondary">Edit</a>
+        <button (click)="delete(wo.id!)" class="btn btn-sm btn-danger">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

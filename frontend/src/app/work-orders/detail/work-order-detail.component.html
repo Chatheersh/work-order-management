@@ -1,0 +1,45 @@
+<div *ngIf="loading" class="loading">Loading...</div>
+<div *ngIf="errorMessage" class="error-banner">{{ errorMessage }}</div>
+
+<div *ngIf="workOrder" class="detail-page">
+  <div class="detail-header">
+    <div>
+      <h1>{{ workOrder.title }}</h1>
+      <div class="meta">
+        <span class="status-badge" [ngClass]="statusClass(workOrder.status)">
+          {{ workOrder.status | titlecase }}
+        </span>
+        <span class="priority-badge" [ngClass]="priorityClass(workOrder.priority)">
+          {{ workOrder.priority | titlecase }}
+        </span>
+      </div>
+    </div>
+    <div class="header-actions">
+      <a [routerLink]="['/work-orders', workOrder.id, 'edit']" class="btn btn-secondary">Edit</a>
+      <button (click)="delete()" class="btn btn-danger">Delete</button>
+    </div>
+  </div>
+
+  <div class="detail-card">
+    <div class="detail-field">
+      <span class="field-label">Description</span>
+      <span class="field-value">{{ workOrder.description || 'No description provided.' }}</span>
+    </div>
+    <div class="detail-field">
+      <span class="field-label">Assignee</span>
+      <span class="field-value">{{ workOrder.assignee || '—' }}</span>
+    </div>
+    <div class="detail-field">
+      <span class="field-label">Created</span>
+      <span class="field-value">{{ workOrder.createdAt | date:'medium' }}</span>
+    </div>
+    <div class="detail-field">
+      <span class="field-label">Last Updated</span>
+      <span class="field-value">{{ workOrder.updatedAt | date:'medium' }}</span>
+    </div>
+  </div>
+
+  <div class="back-link">
+    <a routerLink="/work-orders">← Back to Work Orders</a>
+  </div>
+</div>
