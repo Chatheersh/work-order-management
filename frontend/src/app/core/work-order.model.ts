@@ -19,3 +19,11 @@ export const WORK_ORDER_STATUSES: WorkOrderStatus[] = [
 export const WORK_ORDER_PRIORITIES: WorkOrderPriority[] = [
   'LOW', 'MEDIUM', 'HIGH', 'CRITICAL'
 ];
+
+export interface WorkOrderRequest {
+  title: string;
+  description?: string;
+  status: WorkOrderStatus;
+  priority: WorkOrderPriority;
+  assignee?: string;
+}
