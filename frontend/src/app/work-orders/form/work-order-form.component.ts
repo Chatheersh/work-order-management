@@ -4,7 +4,7 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { WorkOrderService } from '../../core/work-order.service';
 import {
-  WorkOrder,
+  WorkOrderRequest,
   WORK_ORDER_STATUSES,
   WORK_ORDER_PRIORITIES
 } from '../../core/work-order.model';
@@ -63,7 +63,7 @@ export class WorkOrderFormComponent implements OnInit {
     if (this.form.invalid) return;
     this.submitting = true;
     this.errorMessage = '';
-    const payload: WorkOrder = this.form.value;
+    const payload: WorkOrderRequest = this.form.value;
 
     const request$ = this.isEditMode
       ? this.workOrderService.update(this.workOrderId!, payload)
