@@ -1,0 +1,35 @@
+.task-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 0.5rem;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.task-label {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+}
+
+.task-label input[type="checkbox"] {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.desc {
+  font-size: 0.95rem;
+}
+
+.order {
+  font-size: 0.85rem;
+  color: rgba(0,0,0,0.5);
+  margin-left: 1rem;
+}
+
+/* Focus outline for accessibility */
+.task-label input[type="checkbox"]:focus {
+  outline: 3px solid rgba(21,156,228,0.35);
+  outline-offset: 2px;
+}

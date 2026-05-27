@@ -25,3 +25,22 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## WorkOrderTaskRowComponent
+
+A small presentational component to render a WorkOrderTask as a row with a checkbox.
+
+Usage:
+
+<pre>
+&lt;app-work-order-task-row
+  *ngFor="let t of tasks | orderBy:'order'"
+  [task]="t"
+  (toggled)="onTaskToggled($event)"
+&gt;&lt;/app-work-order-task-row&gt;
+</pre>
+
+Notes:
+- Tasks should be ordered by their `order` field before rendering. The component itself does not sort.
+- The component emits `toggled` with the updated task when the user toggles completion. The change is persisted via WorkOrderTaskService.
+
