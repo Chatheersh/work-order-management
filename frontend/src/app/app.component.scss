@@ -1,0 +1,36 @@
+.app-header {
+  background-color: #1a73e8;
+  color: white;
+  padding: 0 1.5rem;
+
+  nav {
+    display: flex;
+    align-items: center;
+    height: 56px;
+    gap: 1.5rem;
+
+    .brand {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-right: auto;
+    }
+
+    a {
+      color: rgba(255, 255, 255, 0.85);
+      text-decoration: none;
+      font-size: 0.95rem;
+
+      &:hover,
+      &.active {
+        color: white;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.app-content {
+  padding: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
