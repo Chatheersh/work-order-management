@@ -1,0 +1,13 @@
+<div class="task-row" role="listitem">
+  <label class="task-label">
+    <input
+      type="checkbox"
+      [checked]="task?.completed"
+      (change)="onToggle($event)"
+      [attr.aria-checked]="task?.completed"
+      aria-label="Toggle task completion"
+    />
+    <span class="desc">{{ task?.description }}</span>
+  </label>
+  <span class="order" aria-hidden="true">#{{ task?.order }}</span>
+</div>
